@@ -43,7 +43,7 @@ if (resultsGallery && toggleGalleryBtn) {
     let galleryExpanded = false;
 
     function getVisibleGalleryCount() {
-        if (window.innerWidth <= 600) return 3;
+        if (window.innerWidth <= 533) return 3;
         if (window.innerWidth <= 900) return 4;
         return 6;
     }
