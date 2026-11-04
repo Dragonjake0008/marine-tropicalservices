@@ -86,7 +86,7 @@ body {
     inset: 0;
     width: 100%;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 27, 37, 0.6);
     z-index: 2147483647;
     display: flex;
     justify-content: center;
@@ -105,10 +105,11 @@ body {
 }
 
 .popup-box {
-    background-color: var(--off-white);
+    background: linear-gradient(to top, var(--background-2), var(--background-1));
     width: 100%;
     max-width: 500px;
     border-radius: 12px;
+    border: solid 1px var(--pure-white);
     padding: 40px 30px;
     position: relative;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -123,14 +124,16 @@ body {
 
 .popup-content h2 {
     font-size: 24px;
-    color: var(--heading-colour);
+    color: var(--off-white);
     margin-bottom: 15px;
     margin-top: 15px;
+    font-weight: 900;
+    -webkit-text-stroke: 1px black;
 }
 
 .popup-content p {
     font-size: 15px;
-    color: var(--text-colour);
+    color: var(--off-white);
     line-height: 1.6;
     margin-bottom: 25px;
 }
@@ -142,25 +145,32 @@ body {
     background: none;
     border: none;
     font-size: 28px;
-    color: #999;
+    color: var(--off-white);
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 .close-btn:hover {
-    color: #333;
+    color: var(--pure-white);
+    transform: scale(1.2);
 }
 
 .action-btn {
-    background: linear-gradient(to bottom right, var(--button-bg-1) 0%, var(--button-bg-2) 100%);
-    border: none;
+    background: transparent;
+    border: solid 2px var(--off-white);
     padding: 12px 30px;
     border-radius: 6px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.action-btn:hover {
+    background-color: var(--button-hover-colour);
+    transform: scale(1.1);
 }
 
 .action-btn a {
-    color: var(--pure-white);
+    color: var(--off-white);
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -301,7 +311,8 @@ body {
 /* ====== Hero section styles ====== */
 .nav-hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 100vh; /* Fallback for older browers */
+    min-height: 100dvh; /* For newer browers */
     width: 100%;
     padding-top: 120px;
     background-image: url('Untitled design (26).png');
@@ -328,7 +339,7 @@ body {
 }
 
 .hero-content h1 {
-    font-size: clamp(2.4rem, 5vw, 2.5rem);
+    font-size: clamp(2.5rem, 5vw, 2.6rem);
     margin-bottom: 10px;
     width: 105%;
 }
@@ -467,7 +478,7 @@ body {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: radial-gradient(circle at center, var(--background-1) 30%, var(--background-2) );
+    background: radial-gradient(circle at center, var(--background-1) 30%, var(--background-2));
     padding: clamp(64px, 8vw, 96px) var(--section-inline-padding);
 }
 
@@ -623,6 +634,12 @@ body {
     }
 }
 
+@media (max-width: 656px) {
+    .service-card {
+        margin-bottom: 20px;
+    }
+}
+
 @media (max-width: 640px) {
     .services {
         padding: clamp(48px, 6vw, 64px) 16px;
@@ -637,7 +654,7 @@ body {
     }
 }
 
-/* ====== Services Section styles ====== */
+/* ====== Work Section styles ====== */
 .work-section {
     min-height: 100vh;
     width: 100%;
@@ -679,6 +696,12 @@ body {
    text-align: center;
    color: var(--off-white);
    font-size: 1.1rem;
+}
+
+@media (max-width: 553px) {
+    .work-item {
+       margin-bottom: 20px;
+    }
 }
 
 /* ====== Process Section styles ====== */
@@ -873,6 +896,12 @@ body {
     }
 }
 
+@media (max-width: 533px) {
+    .results-image-container {
+        margin-bottom: 20px;
+    }
+}
+
 /* ====== Testing Section Styles ====== */
 .testing-section {
     min-height: 100vh;
@@ -941,7 +970,7 @@ body {
     padding: clamp(64px, 8vw, 96px) var(--section-inline-padding);
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at center, var(--background-1) 30%, var(--background-2) );
+    background: radial-gradient(circle at center, var(--background-1) 30%, var(--background-2));
 }
 
 #messageIcon {
@@ -1179,6 +1208,7 @@ color: var(--text-colour);
     border: none;
     height: 1px;
     width: 50%;
+    min-width: 255px;
     margin: 15px auto;
     background: rgba(46, 83, 139, 0.486);
 }
